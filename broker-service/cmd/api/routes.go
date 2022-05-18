@@ -23,6 +23,7 @@ func (app *Config) routes() http.Handler {
 	// 確認這個服務是否存在
 	mux.Use(middleware.Heartbeat("/ping"))
 	mux.Post("/", app.Broker)
+	mux.Post("/handle", app.HandleSubmission)
 
 	return mux
 }
